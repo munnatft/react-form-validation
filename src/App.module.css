@@ -1,0 +1,137 @@
+.wrapper-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.wrapper {
+    width: fit-content;
+    height: fit-content;
+    box-shadow: 0px 8px 20px 8px rgb(187 184 184 / 80%);
+    padding: 1rem 1.5rem 1rem 1.5rem;
+    border-radius: 1rem;
+}
+
+.form {
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.form-control label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 0.25rem;
+}
+
+.form-control input {
+    border: 1px solid #80808096;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+    width: 18rem;
+    font-size: 1.25rem;
+}
+
+.form-radio {
+    margin-bottom: 0.5rem;
+}
+
+.form-radio label , .form-check label{
+    padding : 0rem 0rem 0rem 0.75rem;
+    font-style: italic;
+}
+
+.form-select {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.75rem;
+}
+
+.form-select label {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 0.25rem;
+}
+
+.form-select select {
+    border: 1px solid #80808096;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+    width: 19rem;
+    font-size: 1.25rem;
+}
+
+.invalid label, .invalid p, .invalid small {
+    color: #dc3545;
+}
+
+input:focus , input:active , select:focus , select:active{
+    border-color: rgb(136, 125, 231);
+    outline: none;
+}
+
+input::placeholder {
+    font-size: 1rem;
+}
+
+.btn {
+    border-radius: 0.5rem;
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    background-color: #3F8755;
+    color: white;
+    cursor: pointer;
+    font-style: italic;
+}
+
+.btn:disabled {
+    background-color: #6C757D;
+    cursor: not-allowed;
+}
+
+.invalid label , .invalid small {
+    color: #dc3545;
+    font-style: italic;
+}
+.invalid input, .invalid select {
+    border-color: #dc3545;
+}
+
+.skills-box {
+    margin-bottom: 0.75rem;
+}
+
+.skills-box p {
+    font-size: 1.25rem;
+    font-weight: bold;
+    font-style: italic;
+    padding-bottom: 0.25rem;
+}
+
+.invalid p{
+    color: #dc3545;
+}
+
+.invalid input[type="checkbox"] {
+    border-color: #dc3545;
+}
+
+.checkboxes {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
