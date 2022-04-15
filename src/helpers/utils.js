@@ -12,9 +12,10 @@ export const validateFormFields = (formFields) => {
     let genderError = '';
     let professionError = '';
     let skillsError = '';
+    let hobbiesError = '';
     let isInvalid = false;
 
-    const {name,email,username,gender,password,confirmPassword,profession,phone,skillsState} = formFields;
+    const {name,email,username,gender,password,confirmPassword,profession,phone,skillsState , hobbies} = formFields;
 
     if(name.trim().length === 0) {
         nameError = 'Name can not be empty or less than 3 characters.' 
@@ -44,6 +45,10 @@ export const validateFormFields = (formFields) => {
         skillsError = 'Choose one or more skills.'
     }
 
+    if(hobbies.length === 0) {
+        hobbiesError = 'Choose one or more hobbies.'
+    }
+
     if(password.length === 0 || password.length < 8) {
         passwordError = 'Password must contain atleast 8 characters.'
     }
@@ -57,7 +62,7 @@ export const validateFormFields = (formFields) => {
         confirmPasswordError = 'Passwords do not match.';
     }
 
-    if(nameError || emailError || usernameError || phoneError || skillsError || genderError || passwordError || confirmPasswordError || professionError) {
+    if(nameError || emailError || usernameError || phoneError || hobbiesError || skillsError || genderError || passwordError || confirmPasswordError || professionError) {
         isInvalid = true;
     }
 
@@ -69,8 +74,9 @@ export const validateFormFields = (formFields) => {
         genderError,
         phoneError,
         professionError,
-        passwordError,
         skillsError,
+        hobbiesError,
+        passwordError,
         confirmPasswordError
     }
 

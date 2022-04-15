@@ -114,7 +114,7 @@ input::placeholder {
     margin-bottom: 0.75rem;
 }
 
-.skills-box p {
+.skills-box p , .hobbies label {
     font-size: 1.25rem;
     font-weight: bold;
     font-style: italic;
@@ -133,5 +133,10 @@ input::placeholder {
     display: grid;
     grid-template-columns: auto auto auto;
 }
+
+.hobbies {
+    margin-bottom: 0.75rem;
+}
+
 
 

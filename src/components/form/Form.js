@@ -5,6 +5,7 @@ import Gender from './radio/Gender';
 import Input from './input/Input';
 import Profession from './select/Profession';
 import Skills from './checkbox/Skills';
+import Hobbies from './select/Hobbies';
 
 const initialInputState = {
     name : '',
@@ -25,14 +26,19 @@ const initialErrorState = {
     genderError : '',
     professionError : '',
     skillsError :'',
+    hobbiesError : '',
     passwordError : '',
     confirmPasswordError : ''
 }
+
+
 
 const Form = () => {
 
     const [inputs , setInputs] = useState(initialInputState)
     const [skillsState , setSkillsState] = useState([]);
+    const [hobbies , setHobbies] = useState([]);
+
 
     const [inputsError ,setInputsError] = useState(initialErrorState)
 
@@ -57,9 +63,13 @@ const Form = () => {
 
     }
 
+    const handleHobbiesChange = (value) => {
+        setHobbies([...value]);
+    }
+
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        const {isInvalid , ...error} = validateFormFields({...inputs,skillsState})
+        const {isInvalid , ...error} = validateFormFields({...inputs,skillsState,hobbies})
         if(isInvalid) {
             setInputsError((prevInputsError) => {
                 return {
@@ -70,7 +80,7 @@ const Form = () => {
 
             return ;
         }
-        console.log({...inputs,skillsState})
+        console.log({...inputs,skillsState,hobbies})
         alert("Form Submitted Successfully")
         setInputsError(initialErrorState)
         setInputs(initialInputState)
@@ -95,6 +105,7 @@ const Form = () => {
             <Gender handleChange={handleChange} gender={inputs.gender} styles={genderClasses} error={inputsError.genderError} />
             <Profession profession={inputs.profession} handleChange={handleChange} styles={professionClasses} error={inputsError.professionError}  />
             <Skills handleChange={handleSkillsChange} error={inputsError.skillsError} skills={skillsState} />
+            <Hobbies error={inputsError.hobbiesError} handleChange={handleHobbiesChange} />
             <Input label="Password"  type="password" placeholder='Enter password' name='password' value={inputs.password} onChange={handleChange} error={inputsError.passwordError} styles={passwordClasses} />
             <Input label="Confirm Password"  type="password" placeholder='Enter Confirm password' name='confirmPassword' value={inputs.confirmPassword} onChange={handleChange} error={inputsError.confirmPasswordError} styles={confirmPasswordClasses} />
             <button type='submit' className={styles['btn']}>Submit</button>
