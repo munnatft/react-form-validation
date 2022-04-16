@@ -33,10 +33,6 @@ const Hobbies = ({error , handleChange}) => {
           {
             ...theme,
             borderRadius: 8,
-            outline : 'none',
-            color : {
-                primary : 'rgb(136, 125, 231)'
-            }
       })
 
     return (
@@ -46,7 +42,6 @@ const Hobbies = ({error , handleChange}) => {
                 name='hobbies'
                 options={options}
                 onChange={handleChange}
-                styles={customStyles}
                 theme={customTheme}
                 isMulti
             />
