@@ -87,6 +87,7 @@ const Form = () => {
         setSkillsState([])
     }
 
+
     const nameClasses = `${styles['form-control']} ${inputsError.nameError ? styles['invalid'] : ''}`;
     const emailClasses = `${styles['form-control']} ${inputsError.emailError ? styles['invalid'] : ''}`;
     const usernameClasses = `${styles['form-control']} ${inputsError.usernameError ? styles['invalid'] : ''}`;
