@@ -13,7 +13,7 @@ const options=[
     {label : 'Novel Reading' , value : 'Novel Reading'},
 ]
 
-const Hobbies = ({error , handleChange}) => {
+const Hobbies = ({error , handleChange , hobbies}) => {
 
     const hobbiesClassName = `${styles['hobbies']} ${error ? styles['invalid'] : ''}`;
 
@@ -31,6 +31,7 @@ const Hobbies = ({error , handleChange}) => {
                 options={options}
                 onChange={handleChange}
                 theme={customTheme}
+                value={hobbies}
                 isMulti
             />
             {error && <small>{error}</small>}
