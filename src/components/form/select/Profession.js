@@ -1,5 +1,5 @@
-import React from 'react';
-import style from '../../../App.module.css';
+import React, { useEffect } from 'react';
+import classes from '../../../App.module.css';
 
 const options = [
     'Software Enginner',
@@ -10,7 +10,7 @@ const options = [
 
 const Profession = (props) => {
 
-    const { profession , handleChange, styles , error , professionType } = props;
+    const { profession , handleChange, styles , error , subProfession , setInputs , subProfessionError} = props;
 
     let type = null;
     let dropdownOptions = null;
@@ -26,6 +26,19 @@ const Profession = (props) => {
         type = softwareTrainee
     }
 
+    useEffect(()=>{
+        if(profession === 'Cloud Engineering' || profession === 'Data Scientist') {
+            setInputs((prevInputs) => {
+                return {
+                    ...prevInputs,
+                    subProfession : ''
+                }
+            })
+        }
+    },[profession , setInputs])
+
+    
+
     if(type) {
         dropdownOptions = type.map((data) => <option value={data} key={data}>{data}</option>)
     }
@@ -37,12 +50,16 @@ const Profession = (props) => {
         }
     }
 
+    const subProfessionClasses = `${classes["form-select"]} ${
+        subProfessionError ? classes["invalid"] : ""
+      }`;
+
     return (
         <>
             <div className={styles}>
-                <label>Designation</label>
+                <label>Profession</label>
                 <select name='profession' value={profession} onChange={handleChange}>
-                    <option value="">--Select Designation--</option>
+                    <option value="">--Select Profession--</option>
                     {
                         options.map(data => {
                             return <option value={data} key={data}>{data}</option>
@@ -53,17 +70,18 @@ const Profession = (props) => {
             </div>
             {
                 type &&
-                <div className={style['form-select']}>
-                    <label>Select Profession Type</label>
+                <div className={subProfessionClasses}>
+                    <label>Select Subprofession </label>
                     <select 
-                        name='professionType' 
-                        value={professionType} 
+                        name='subProfession' 
+                        value={subProfession} 
                         onChange={handleChange}
                         onBlur = {handleBlurEvent}
                     >
-                        <option value=''>-- Select Profession Type ---</option>
+                        <option value=''>-- Select sub-profession ---</option>
                         {dropdownOptions}
                     </select>
+                    {subProfessionError && <small>{subProfessionError}</small> }
                 </div>
             }
 

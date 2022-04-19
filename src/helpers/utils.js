@@ -11,11 +11,12 @@ export const validateFormFields = (formFields) => {
     let phoneError = '';
     let genderError = '';
     let professionError = '';
+    let subProfessionError = '';
     let skillsError = '';
     let hobbiesError = '';
     let isInvalid = false;
 
-    const {name,email,username,gender,password,confirmPassword,profession,phone,skillsState , hobbies} = formFields;
+    const {name,email,username,gender,password,confirmPassword,profession,subProfession,phone,skillsState , hobbies} = formFields;
 
     if(name.trim().length === 0) {
         nameError = 'Name can not be empty or less than 3 characters.' 
@@ -35,6 +36,14 @@ export const validateFormFields = (formFields) => {
 
     if(profession.length === 0) {
         professionError = 'Designation can not be empty.'
+    }
+
+    if((profession !== 'Cloud Engineering' || profession !== 'Data Scientist') && subProfession.length === 0) {
+        subProfessionError = 'Choose any of the sub-profession.'
+    }
+
+    if( profession === 'Cloud Engineering' || profession === 'Data Scientist') {
+        subProfessionError = ''
     }
 
     if(!phoneRegex.test(phone)) {
@@ -62,7 +71,7 @@ export const validateFormFields = (formFields) => {
         confirmPasswordError = 'Passwords do not match.';
     }
 
-    if(nameError || emailError || usernameError || phoneError || hobbiesError || skillsError || genderError || passwordError || confirmPasswordError || professionError) {
+    if(nameError || emailError || usernameError || phoneError || hobbiesError || skillsError || genderError || passwordError || confirmPasswordError || professionError || subProfessionError) {
         isInvalid = true;
     }
 
@@ -74,6 +83,7 @@ export const validateFormFields = (formFields) => {
         genderError,
         phoneError,
         professionError,
+        subProfessionError,
         skillsError,
         hobbiesError,
         passwordError,

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { validateFormFields } from "../../helpers/utils";
 import styles from "../../App.module.css";
 import Gender from "./radio/Gender";
@@ -14,7 +14,7 @@ const initialInputState = {
   phone: "",
   gender: "",
   profession: "",
-  professionType : "",
+  subProfession : "",
   password: "",
   confirmPassword: "",
 };
@@ -26,6 +26,7 @@ const initialErrorState = {
   phoneError: "",
   genderError: "",
   professionError: "",
+  subProfessionError : "",
   skillsError: "",
   hobbiesError: "",
   passwordError: "",
@@ -81,7 +82,7 @@ const Form = () => {
       return;
     }
     console.log({ ...inputs, skillsState, hobbies });
-    alert("Form Submitted Successfully");
+    // alert("Form Submitted Successfully");
     setInputsError(initialErrorState);
     setInputs(initialInputState);
     setSkillsState([]);
@@ -160,10 +161,12 @@ const Form = () => {
       />
       <Profession
         profession={inputs.profession}
-        professionType = {inputs.professionType}
+        subProfession = {inputs.subProfession}
         handleChange={handleChange}
         styles={professionClasses}
         error={inputsError.professionError}
+        setInputs = {setInputs}
+        subProfessionError = {inputsError.subProfessionError}
       />
       <Skills
         handleChange={handleSkillsChange}

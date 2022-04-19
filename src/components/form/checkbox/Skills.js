@@ -22,13 +22,6 @@ const Skills = (props) => {
 
     const checkboxClasses = `${classes['skills-box']} ${error ? classes['invalid'] : ''}`;
 
-    // const handleCheck = () => {
-    //     if(skills.length !== 0) {
-
-    //     }
-
-    //     return false;
-    // }
 
     return (
         <div className={checkboxClasses}>
